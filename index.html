@@ -25,11 +25,16 @@ h1,h2,h3{line-height:1.2;margin:0 0 12px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
     .btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:#1a1f2d;font-weight:600}
     .btn.primary{background:linear-gradient(135deg,var(--accent),#f6e9ba);color:#141722;border:none}
-    .grid{display:grid;gap:18px;grid-template-columns:1fr 1fr}@media (max-width:640px){
-  header{padding:16px 0 10px}
-  h1{font-size:22px; line-height:1.2; margin:0 0 6px; letter-spacing:.2px}
-  p.lead{font-size:13.5px; margin:0}
+  .grid{display:grid;gap:18px;grid-template-columns:1fr 1fr}
 
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .btn.primary{
+    font-size:16px;
+    padding:14px 16px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(244,216,138,.25);
+  }
   .card{padding:12px; border-radius:12px; margin:10px 0}
   .btn{width:100%; text-align:center; padding:12px 12px; border-radius:10px}
 }
