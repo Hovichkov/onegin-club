@@ -1,130 +1,273 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Книжный клуб по роману Александра Пушкина «Евгений Онегин» — сезон 1</title>
-  <meta name="description" content="Живой книжный клуб Артёма Новиченкова: 8 воскресных встреч по «Евгению Онегину». Записи каждой встречи. Регистрация через форму." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>📚</text></svg>">
+  <meta charset="utf-8">
+  <title>Книжный клуб «Евгений Онегин» — сезон 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="8 воскресных встреч по «Евгению Онегину»: живое чтение, смысловой разбор, Zoom + запись. Ведущий — Артём Новиченков. Регистрация через форму.">
+  <meta property="og:title" content="Клуб «Евгений Онегин» — сезон 1">
+  <meta property="og:description" content="8 воскресных встреч · Zoom + запись · Ведущий — Артём Новиченков">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2780%27>📚</text></svg>">
+
   <style>
-    :root{--bg:#0f1115;--card:#141824;--ink:#e8edf6;--muted:#9ea9bd;--line:#222a3b;--accent:#e7d29f}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:960px;margin:0 auto;padding:0 20px}
-    header{padding:32px 0;border-bottom:1px solid var(--line);background:radial-gradient(900px 300px at 15% -10%,rgba(231,210,159,.18),transparent 60%)}
-    h1{margin:0 0 8px;font-size:36px}
-    p.lead{margin:0;color:var(--muted);line-height:1.4}
-main{padding:16px 0}
-    h1 {
-  font-size: clamp(20px, 5vw, 36px);
-  text-align: center;
-  word-wrap: break-word;
-}
-h1,h2,h3{line-height:1.2;margin:0 0 12px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
-    .btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:#1a1f2d;font-weight:600}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),#f6e9ba);color:#141722;border:none}
-  .grid{display:grid;gap:18px;grid-template-columns:1fr 1fr}
-@media (max-width:640px){
-  .grid{grid-template-columns:1fr}
-  .card table{display:block; width:100%; overflow-x:auto; border-spacing:0}
-.card table th, .card table td{white-space:nowrap; font-size:14px}
-  .btn.primary{
-    font-size:16px;
-    padding:14px 16px;
-    border-radius:12px;
-    box-shadow:0 6px 16px rgba(244,216,138,.25);
+    :root{
+      --bg:#ffffff;
+      --ink:#0b0f17;
+      --muted:#606b7b;
+      --line:#e6e8ee;
+      --card:#f9fafc;
+      --accent:#c8a97e;         /* тёплое золото */
+      --accent-ink:#111;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(17,20,28,.06);
     }
-    header{padding:12px 0 8px}
-h1{font-size:28px; line-height:1.15; margin:0 0 6px; letter-spacing:.2px}
-p.lead{font-size:14px; margin:0}
-  .card{padding:12px; border-radius:12px; margin:10px 0}
-  .btn{width:100%; text-align:center; padding:12px 12px; border-radius:10px}
-}
-    th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
-    th{background:#101523;color:#cfd6e6}
-    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
-    .note{font-size:14px;color:var(--muted)}
-    footer .grid{align-items:flex-start;gap:18px}
-footer a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
-footer a:hover{color:var(--ink);border-bottom-color:var(--ink)}
-footer strong{color:var(--ink)}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,"Helvetica Neue",system-ui,sans-serif;
+      line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1040px;margin:0 auto;padding:0 24px}
+
+    /* ——— HERO ——— */
+    header.hero{
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(900px 300px at 10% -10%, rgba(200,169,126,.15), transparent 60%),
+        linear-gradient(180deg,#fff 0%, #fbfcfe 100%);
+    }
+    .hero-wrap{padding:64px 0 28px}
+    h1{margin:0 0 12px; font-size:46px; letter-spacing:.2px; line-height:1.16}
+    .lead{margin:0; color:var(--muted); font-size:18px}
+    .cta-row{margin-top:24px; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .btn{
+      display:inline-block; padding:14px 20px; border-radius:12px;
+      background:var(--accent); color:var(--accent-ink); font-weight:700;
+      box-shadow:0 8px 24px rgba(200,169,126,.25);
+      border:1px solid color-mix(in oklab, var(--accent), black 10%);
+      transition:transform .15s ease, box-shadow .15s ease
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 28px rgba(200,169,126,.32)}
+    .tiny{font-size:13px; color:var(--muted)}
+
+    /* ——— SECTIONS / CARDS ——— */
+    section{padding:28px 0}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    h2{margin:0 0 10px; font-size:26px; line-height:1.25}
+    h3{margin:0 0 8px; font-size:20px; line-height:1.25; color:#1a2230}
+
+    /* ——— BENEFITS ——— */
+    .grid{display:grid; gap:18px; grid-template-columns:1fr 1fr}
+    .benefit{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+    .benefit .k{font-size:22px; margin-right:10px}
+    .benefit p{margin:6px 0 0; color:#243043}
+
+    /* ——— PROGRAM TABLE ——— */
+    .table-wrap{overflow-x:auto}
+    table{width:100%; border-collapse:separate; border-spacing:0; min-width:560px}
+    thead th{background:#f3f5f9; color:#1c2432; font-weight:700; text-align:left; padding:12px 14px; border-bottom:1px solid var(--line)}
+    tbody td{padding:12px 14px; border-bottom:1px solid var(--line)}
+    tbody tr:nth-child(odd){background:#fff}
+    tbody tr:hover{background:#f8fafc}
+    .col-n{width:56px}
+
+    /* ——— HOST ——— */
+    .host{display:flex; gap:18px; align-items:flex-start}
+    .avatar{
+      width:84px; height:84px; border-radius:50%;
+      background:linear-gradient(135deg,#e9dcc8,#fff5d8);
+      border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:#8a6d3f; letter-spacing:.5px;
+      flex:0 0 auto
+    }
+    .host p{margin:8px 0 0}
+
+    /* ——— HOW IT WORKS + FAQ ——— */
+    ol.steps{margin:0 0 0 20px}
+    details{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:600}
+
+    /* ——— FOOTER ——— */
+    footer{border-top:1px solid var(--line); padding:28px 0; margin-top:6px}
+    footer .grid{align-items:flex-start; gap:18px}
+    footer a{color:inherit; text-decoration:none; border-bottom:1px dotted var(--line)}
+    footer a:hover{border-bottom-color:#222}
+    footer strong{color:#0f1520}
+    .copy{margin-top:10px; color:var(--muted); text-align:center; font-size:14px}
+
+    /* ——— MOBILE ——— */
+    @media (max-width:640px){
+      .hero-wrap{padding:32px 0 18px}
+      h1{font-size:32px}
+      .lead{font-size:15px}
+      .cta-row .btn{width:100%; text-align:center}
+      section{padding:18px 0}
+      .grid{grid-template-columns:1fr}
+      .host{flex-direction:column}
+      .avatar{width:72px;height:72px}
+      .card{padding:16px}
+      .table-wrap{border-radius:12px; border:1px solid var(--line); background:#fff}
+      thead th, tbody td{padding:10px 12px; font-size:14px}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Книжный клуб по роману Александра Пушкина «Евгений Онегин» — сезон 1</h1>
-      <p class="lead">8 воскресных встреч, 19:00 МСК • Zoom + запись каждой встречи</p>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-wrap">
+      <h1>Книжный клуб «Евгений Онегин» — сезон 1</h1>
+      <p class="lead">8 воскресных встреч, 19:00 МСК · Zoom + запись</p>
+      <div class="cta-row">
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSerXTwNhGyzESx4CVvs0OoDWRSMKdcH8aHc94SvrPqV8fDhXg/viewform?usp=dialog">
+          Заполнить заявку
+        </a>
+        <span class="tiny">После подтверждения на почту придёт ссылка для оплаты.</span>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="card">
-      <h2 style="margin:0 0 6px">О клубе</h2>
-      <p>Читаем Пушкина медленно и вглубь: литература × психология × философия × культура. Ведущий — Артём Новиченков. Формат: живые онлайн-встречи + записи и материалы.</p>
-      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSerXTwNhGyzESx4CVvs0OoDWRSMKdcH8aHc94SvrPqV8fDhXg/viewform?usp=dialog">
-          Заполнить заявку
-        </a>
-        <span class="note">После подтверждения на почту придёт ссылка для оплаты.</span>
+
+    <!-- О КЛУБЕ -->
+    <section>
+      <div class="card">
+        <h2>О клубе</h2>
+        <p>Читаем Пушкина медленно и вглубь: литература × психология × философия × культура. Формат: живые онлайн-встречи + запись и материалы для участников.</p>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h3 style="margin:0 0 6px">Расписание сезона 1 (главы 1–4)</h3>
-        <table>
-          <tr><th>#</th><th>Дата</th><th>Тема</th></tr>
-          <tr><td>1</td><td>7 сентября</td><td>Глава 1 — часть 1</td></tr>
-          <tr><td>2</td><td>14 сентября</td><td>Глава 1 — часть 2</td></tr>
-          <tr><td>3</td><td>21 сентября</td><td>Глава 2 — часть 1</td></tr>
-          <tr><td>4</td><td>28 сентября</td><td>Глава 2 — часть 2</td></tr>
-          <tr><td>5</td><td>5 октября</td><td>Глава 3 — часть 1</td></tr>
-          <tr><td>6</td><td>12 октября</td><td>Глава 3 — часть 2</td></tr>
-          <tr><td>7</td><td>19 октября</td><td>Глава 4 — часть 1</td></tr>
-          <tr><td>8</td><td>26 октября</td><td>Глава 4 — часть 2</td></tr>
-        </table>
+    <!-- ЗАЧЕМ ВАМ В КЛУБ (ВЫГОДЫ) -->
+    <section>
+      <div class="grid">
+        <div class="benefit">
+          <div><span class="k">🎯</span><strong>Понять «Онегина» глубже, чем в школе</strong></div>
+          <p>Разбираем без занудства, но с вниманием к деталям.</p>
+        </div>
+        <div class="benefit">
+          <div><span class="k">🪞</span><strong>Увидеть книгу как зеркало себя</strong></div>
+          <p>Сопоставляем судьбы героев со своим опытом, находим инсайты.</p>
+        </div>
+        <div class="benefit">
+          <div><span class="k">👥</span><strong>Живое сообщество</strong></div>
+          <p>Обсуждаем, спорим, делимся — в кругу единомышленников.</p>
+        </div>
+        <div class="benefit">
+          <div><span class="k">🗓️</span><strong>Удобный формат</strong></div>
+          <p>Встречи раз в неделю + записи — ничего не потеряете.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- ПРОГРАММА -->
+    <section>
       <div class="card">
-        <h3 style="margin:0 0 6px">Как это работает</h3>
-        <ol style="margin:0 0 10px 18px">
+        <h2>Программа сезона 1 (главы 1–4)</h2>
+        <div class="table-wrap" role="region" aria-label="Программа встреч" tabindex="0">
+          <table>
+            <thead>
+              <tr><th class="col-n">№</th><th>Дата</th><th>Тема</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>7 сентября</td><td>Глава 1 — часть 1</td></tr>
+              <tr><td>2</td><td>14 сентября</td><td>Глава 1 — часть 2</td></tr>
+              <tr><td>3</td><td>21 сентября</td><td>Глава 2 — часть 1</td></tr>
+              <tr><td>4</td><td>28 сентября</td><td>Глава 2 — часть 2</td></tr>
+              <tr><td>5</td><td>5 октября</td><td>Глава 3 — часть 1</td></tr>
+              <tr><td>6</td><td>12 октября</td><td>Глава 3 — часть 2</td></tr>
+              <tr><td>7</td><td>19 октября</td><td>Глава 4 — часть 1</td></tr>
+              <tr><td>8</td><td>26 октября</td><td>Глава 4 — часть 2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tiny" style="margin-top:12px">Стоимость: разовая встреча — 1 100 ₽ · сезон (8 встреч) — 7 600 ₽. Оплата доступна после подтверждения заявки.</p>
+      </div>
+    </section>
+
+    <!-- ВЕДУЩИЙ -->
+    <section>
+      <div class="card host">
+        <!-- Замените этот блок на <img src="photo.jpg" class="avatar-img" alt="Артём Новиченков"> при наличии фото -->
+        <div class="avatar" aria-hidden="true">АН</div>
+        <div>
+          <h2 style="margin:0">Артём Новиченков</h2>
+          <p>Писатель, литературовед, преподаватель литературы. Автор пьес и романов, публиковался в ведущих российских журналах. Автор литературных и философских передач на радио «Маяк». Вёл курсы по русской и мировой литературе. Преподавал в НИУ ВШЭ и проекте «Учитель для России». Ведёт литературные клубы и курсы, соединяя глубокое знание текстов с живым разговором о человеке и его судьбе.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАК ЭТО РАБОТАЕТ -->
+    <section>
+      <div class="card">
+        <h2>Как это работает</h2>
+        <ol class="steps">
           <li>Подаёте заявку (кнопка «Заполнить заявку»).</li>
           <li>Мы подтверждаем участие и присылаем ссылку на оплату.</li>
-          <li>После оплаты — ссылка на Zoom и напоминание перед встречей.</li>
+          <li>После оплаты — ссылка на Zoom и напоминание.</li>
           <li>После встречи — запись и материалы на почту.</li>
         </ol>
-        <p class="note">Стоимость: разовая встреча — 1 100 ₽, сезон (8 встреч) — 7 600 ₽. Оплата будет доступна после подтверждения заявки.</p>
       </div>
     </section>
 
-    <section class="card">
-      <h3 style="margin:0 0 6px">Контакты</h3>
-      <p>Telegram: <a href="https://t.me/talking_reed" target="_blank" rel="noopener">@talking_reed</a> · Instagram: <a href="https://instagram.com/Hovichkov" target="_blank" rel="noopener">@Hovichkov</a></p>
+    <!-- FAQ -->
+    <section>
+      <div class="card">
+        <h2>FAQ</h2>
+        <details>
+          <summary>А если я не читал «Онегина»?</summary>
+          <div style="margin-top:8px">Не проблема — читаем и обсуждаем вместе. Клуб открыт для всех.</div>
+        </details>
+        <details>
+          <summary>Что если пропущу встречу?</summary>
+          <div style="margin-top:8px">Дадим доступ к записи и материалам.</div>
+        </details>
+        <details>
+          <summary>Если я не силён в литературе?</summary>
+          <div style="margin-top:8px">Важнее интерес. Объясняем простым языком, без академического снобизма.</div>
+        </details>
+        <details>
+          <summary>Сколько времени нужно?</summary>
+          <div style="margin-top:8px">Раз в неделю по 1,5–2 часа. Читать можно в удобном ритме.</div>
+        </details>
+        <details>
+          <summary>Как оплатить участие?</summary>
+          <div style="margin-top:8px">После подтверждения заявки пришлём ссылку на оплату (ЮKassa).</div>
+        </details>
+      </div>
     </section>
+
+    <!-- CTA ВНИЗУ -->
+    <section>
+      <div class="card" style="text-align:center">
+        <h2 style="margin-bottom:6px">Присоединяйтесь к сезону</h2>
+        <p class="lead" style="margin:0 0 10px; font-size:16px; color:#3a475b">Старт — в ближайшее воскресенье · Места ограничены</p>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSerXTwNhGyzESx4CVvs0OoDWRSMKdcH8aHc94SvrPqV8fDhXg/viewform?usp=dialog">Заполнить заявку</a>
+      </div>
+    </section>
+
   </main>
 
-<footer>
-  <div class="container grid">
-    <div>
-      <strong>Контакты</strong><br>
-      Самозанятый Артём Новиченков (Москва)<br>
-      E-mail: <a href="mailto:artem.fevralsky@gmail.com">artem.fevralsky@gmail.com</a><br>
-      Telegram: <a href="https://t.me/talking_reed" target="_blank" rel="noopener">t.me/talking_reed</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container grid">
+      <div>
+        <strong>Контакты</strong><br>
+        Самозанятый Артём Новиченков (Москва)<br>
+        E-mail: <a href="mailto:artem.fevralsky@gmail.com">artem.fevralsky@gmail.com</a><br>
+        Telegram: <a target="_blank" rel="noopener" href="https://t.me/talking_reed">@talking_reed</a>
+      </div>
+      <div>
+        <strong>Правовая информация</strong><br>
+        Персональные данные из формы используются только для связи по заявке.<br>
+        <a href="privacy.html">Политика конфиденциальности</a> · <a href="offer.html">Публичная оферта</a>
+      </div>
     </div>
-    <div>
-      <strong>Правовая информация</strong><br>
-      Персональные данные из формы используются только для связи по заявке.<br>
-      <a href="privacy.html">Политика конфиденциальности</a> · 
-      <a href="offer.html">Публичная оферта</a>
-    </div>
-  </div>
-  <div class="container" style="margin-top:10px; text-align:center;">
-    © 2025 Клуб «Онегин». Публичная страница регистрации.
-  </div>
-</footer>
+    <div class="container copy">© 2025 Клуб «Онегин». Публичная страница регистрации.</div>
+  </footer>
+
 </body>
 </html>
