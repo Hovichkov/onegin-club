@@ -3,194 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Книжный клуб по роману Александра Пушкина «Евгений Онегин» — сезон 1</title>
-  <meta name="description" content="8 воскресных встреч по «Евгению Онегину»: живое чтение, смысловой разбор, Zoom + запись. Ведущий — Артём Новиченков. Регистрация через форму.">
+  <title>Книжный клуб «Евгений Онегин» — сезон 1</title>
+  <meta name="description" content="8 воскресных встреч по «Евгению Онегину»: живое чтение, осмысленные разговоры, Zoom + запись. Ведущий — Артём Новиченков.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>📚</text></svg>">
 
   <style>
+    /* ====== БАЗА ====== */
     *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:system-ui, Inter, Roboto, sans-serif;
-      background:#fafafa;color:#1d1d1f;line-height:1.6;font-size:16px
+    :root{
+      --ink:#1d1d1f;
+      --muted:#515154;
+      --ink-weak:#86868b;
+      --brand:#667eea;
+      --brand2:#764ba2;
+      --blue:#007aff;
+      --paper:#fff;
+      --bg:#fafafa;
+      --card-shadow:0 8px 30px rgba(0,0,0,.08);
+      --card-shadow-strong:0 12px 40px rgba(0,0,0,.15);
+      --radius-lg:20px;
     }
+    body{font-family:system-ui,Inter,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-    /* HERO */
+    /* ====== HERO ====== */
     .hero-gradient{
-      background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-      color:#fff;padding:120px 0 80px;text-align:center;position:relative;overflow:hidden
+      background:linear-gradient(135deg,var(--brand) 0%,var(--brand2) 100%);
+      color:#fff; padding:120px 0 80px; text-align:center; position:relative; overflow:hidden;
     }
     .hero-gradient::before{
-      content:'';position:absolute;inset:0;
-      background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="600" cy="100" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="100" cy="800" r="1.5" fill="rgba(255,255,255,0.06)"/><circle cx="900" cy="700" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="300" cy="600" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-      pointer-events:none
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'><circle cx='200' cy='200' r='2' fill='rgba(255,255,255,0.1)'/><circle cx='800' cy='300' r='1.5' fill='rgba(255,255,255,0.08)'/><circle cx='600' cy='100' r='1' fill='rgba(255,255,255,0.1)'/><circle cx='100' cy='800' r='1.5' fill='rgba(255,255,255,0.06)'/><circle cx='900' cy='700' r='2' fill='rgba(255,255,255,0.08)'/><circle cx='300' cy='600' r='1' fill='rgba(255,255,255,0.1)'/></svg>") repeat;
+      pointer-events:none;
     }
-    .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto}
+    .hero-content{position:relative;z-index:1;max-width:900px;margin:0 auto}
     .hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:8px 20px;border-radius:25px;font-size:14px;font-weight:500;margin-bottom:32px;text-transform:uppercase;letter-spacing:.5px}
     .hero-slogan{font-size:clamp(32px,7vw,64px);font-weight:300;margin-bottom:24px;letter-spacing:-.02em;line-height:1.1}
-    .hero-schedule{font-size:clamp(16px,2.5vw,20px);opacity:.9;margin:30px 0 40px;font-weight:300;text-align:center}
     .hero-sub{font-size:clamp(18px,3vw,22px);opacity:.95;max-width:700px;margin:0 auto 40px;font-weight:300;line-height:1.5}
     .hero-stats{display:flex;justify-content:center;gap:40px;margin:40px 0;flex-wrap:wrap}
     .hero-stat{text-align:center}
     .hero-stat-number{font-size:28px;font-weight:600;margin-bottom:4px}
     .hero-stat-label{font-size:14px;opacity:.8;text-transform:uppercase;letter-spacing:.5px}
     .hero-cta{margin-top:50px}
-    .hero-cta .cta-button{
-      background:#fff;color:#667eea;font-size:18px;padding:20px 40px;border-radius:50px;
-      box-shadow:0 8px 30px rgba(0,0,0,.15);margin-bottom:36px;font-weight:600;text-decoration:none;display:inline-block;transition:.25s
+    .cta-button{
+      background:#fff;color:var(--brand);font-size:18px;padding:20px 40px;border-radius:50px;
+      box-shadow:var(--card-shadow-strong);margin-bottom:36px;font-weight:600;text-decoration:none;display:inline-block;transition:.2s;
     }
-    .hero-cta .cta-button:hover{background:#f8f9ff;transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.2)}
-    .hero-note{display:none!important}
+    .cta-button:hover{transform:translateY(-3px)}
+    .hero-schedule{font-size:clamp(16px,2.5vw,20px);opacity:.9;margin-top:30px;font-weight:300}
+
     .hero-features{display:flex;justify-content:center;gap:30px;margin-top:50px;flex-wrap:wrap}
     .hero-feature{display:flex;align-items:center;gap:8px;font-size:15px;opacity:.9}
     .hero-feature-icon{width:20px;height:20px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
 
-    /* ABOUT */
-    .about-section{padding:80px 0;background:linear-gradient(135deg,#f8f9ff 0%,#fff 100%)}
-    .about-content{text-align:center;max-width:800px;margin:0 auto}
-    .about-content h2{font-size:32px;font-weight:600;margin-bottom:24px;color:#1d1d1f}
-    .about-content p{font-size:20px;color:#515154;line-height:1.7;font-weight:400}
-
-    /* BENEFITS */
+    /* ====== BENEFITS ====== */
     .benefits-section{padding:100px 0;background:#fff}
     .benefits-header{text-align:center;margin-bottom:60px}
-    .benefits-header h2{font-size:36px;font-weight:600;margin-bottom:20px;color:#1d1d1f}
-    .benefits-header p{font-size:18px;color:#86868b;max-width:600px;margin:0 auto}
+    .benefits-header h2{font-size:36px;font-weight:600;margin-bottom:20px}
+    .benefits-header p{font-size:18px;color:var(--ink-weak);max-width:600px;margin:0 auto}
     .benefits-grid{display:grid;gap:32px;max-width:1000px;margin:0 auto}
-    .benefit-card{background:#fff;padding:32px;border-radius:20px;box-shadow:0 8px 30px rgba(0,0,0,.08);border:1px solid #f0f0f0;transition:.25s}
-    .benefit-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+    .benefit-card{background:#fff;padding:32px;border-radius:var(--radius-lg);box-shadow:var(--card-shadow);border:1px solid #f0f0f0;transition:.2s}
+    .benefit-card:hover{transform:translateY(-3px)}
     .benefit-icon{width:60px;height:60px;background:linear-gradient(135deg,#007aff,#5856d6);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
-    .benefit-card h3{font-size:20px;font-weight:600;margin-bottom:16px;color:#1d1d1f}
-    .benefit-card p{color:#515154;font-size:16px;line-height:1.6}
+    .benefit-card h3{font-size:20px;font-weight:600;margin-bottom:12px}
+    .benefit-card p{color:var(--muted)}
 
-    /* HOST */
+    /* ====== HOST ====== */
     .host-section{padding:100px 0;background:#f8f9ff}
-    .host-content{
-      display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap;max-width:1000px;margin:0 auto
-    }
+    .host-content{display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap}
     .host-info{flex:1 1 640px;max-width:720px;order:1}
-    .host-info h2{font-size:36px;font-weight:600;margin-bottom:24px;color:#1d1d1f}
-    .host-info p{font-size:18px;color:#515154;line-height:1.7;margin-bottom:20px}
-    .host-credentials{background:#fff;padding:24px;border-radius:16px;border-left:4px solid #007aff;margin-top:20px}
-    .host-credentials h4{color:#007aff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-    .host-credentials p{font-size:16px;color:#515154}
-    /* Фото: справа, фикс 280px, не раздувается */
+    .host-info h2{font-size:36px;font-weight:600;margin-bottom:24px}
+    .host-info p{font-size:18px;color:var(--muted);margin-bottom:16px}
+    .host-credentials{background:#fff;padding:24px;border-radius:16px;border-left:4px solid var(--blue);margin-top:8px}
+    .host-credentials h4{color:var(--blue);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
     .guide-photo{
-      order:2;flex:0 0 280px;width:280px;max-width:280px;height:auto;border-radius:20px;
-      box-shadow:0 12px 40px rgba(0,0,0,.15);object-fit:cover
+      order:2;flex:0 0 300px;width:100%;max-width:360px;height:auto;border-radius:var(--radius-lg);
+      box-shadow:var(--card-shadow-strong);object-fit:cover
     }
 
-    /* PROGRAM */
+    /* ====== PROGRAM ====== */
     .program-section{padding:100px 0;background:#fff}
     .program-header{text-align:center;margin-bottom:60px}
-    .program-header h2{font-size:36px;font-weight:600;margin-bottom:20px;color:#1d1d1f}
-    .program-header p{font-size:18px;color:#86868b;max-width:600px;margin:0 auto}
+    .program-header h2{font-size:36px;font-weight:600;margin-bottom:20px}
+    .program-header p{font-size:18px;color:var(--ink-weak);max-width:600px;margin:0 auto}
     .program-grid{display:grid;gap:24px;max-width:1000px;margin:0 auto 60px}
-    .program-card{background:#fff;padding:28px;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #f0f0f0;transition:.25s}
-    .program-card:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.1)}
-    .program-date{color:#007aff;font-weight:600;font-size:14px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
-    .program-title{font-size:20px;font-weight:600;color:#1d1d1f;margin-bottom:12px}
-    .program-desc{color:#515154;font-size:15px;line-height:1.6}
+    .program-card{background:#fff;padding:28px;border-radius:var(--radius-lg);box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #f0f0f0;transition:.2s}
+    .program-card:hover{transform:translateY(-3px)}
+    .program-date{color:var(--blue);font-weight:600;font-size:14px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+    .program-title{font-size:20px;font-weight:600;margin-bottom:8px}
+    .program-desc{color:var(--muted);font-size:15px}
 
-    /* PRICING */
+    /* ====== PRICING ====== */
     .pricing-section{background:#f8f9ff;padding:60px 0;border-radius:24px;margin:60px 0}
-    .pricing-header{text-align:center;margin-bottom:40px}
-    .pricing-header h3{font-size:28px;font-weight:600;margin-bottom:12px;color:#1d1d1f}
-    .pricing-cards{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
-    .price-card{background:#fff;padding:36px;border-radius:20px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08);border:2px solid #007aff;position:relative;min-width:240px}
+    .pricing-header{text-align:center;margin-bottom:32px}
+    .price-row{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap}
+    .price-card{background:#fff;padding:32px 36px;border-radius:var(--radius-lg);text-align:center;box-shadow:var(--card-shadow);border:2px solid var(--blue);min-width:240px}
     .price-card.secondary{border:1px solid #e5e5e7}
-    .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#007aff;color:#fff;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600}
-    .price-main{font-size:36px;font-weight:700;color:#007aff;margin-bottom:8px}
-    .price-desc{color:#515154;margin-bottom:16px;font-size:16px}
-    .price-or{font-size:18px;color:#86868b;font-weight:500}
+    .price-badge{display:inline-block;margin:-12px 0 8px;background:var(--blue);color:#fff;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700}
+    .price-main{font-size:36px;font-weight:800;color:var(--blue);margin-bottom:8px}
+    .price-desc{color:var(--muted)}
 
-    /* HOW IT WORKS */
+    /* ====== HOW IT WORKS ====== */
     .how-it-works{padding:100px 0;background:#fff}
-    .how-header{text-align:center;margin-bottom:60px}
-    .how-header h2{font-size:36px;font-weight:600;margin-bottom:20px;color:#1d1d1f}
-    .steps-grid{display:grid;gap:32px;max-width:800px;margin:0 auto}
-    .step-card{display:flex;align-items:flex-start;gap:24px;padding:24px;background:#fff;border-radius:16px;border:1px solid #f0f0f0}
-    .step-number{background:#007aff;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:16px;flex-shrink:0}
-    .step-content h3{font-size:18px;font-weight:600;margin-bottom:8px;color:#1d1d1f}
-    .step-content p{color:#515154;line-height:1.6}
+    .how-header{text-align:center;margin-bottom:40px}
+    .steps-grid{display:grid;gap:24px;max-width:800px;margin:0 auto}
+    .step-card{display:flex;align-items:flex-start;gap:16px;padding:24px;background:#fff;border-radius:16px;border:1px solid #f0f0f0}
+    .step-number{background:var(--blue);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
 
-    /* FAQ */
-    .faq-section{padding:100px 0;background:linear-gradient(135deg,#f8f9ff 0%,#fff 100%);border-radius:24px;margin:40px 0}
+    /* ====== FAQ (починенное) ====== */
+    .faq-section{padding:100px 0;background:linear-gradient(135deg,#f8f9ff 0%, #fff 100%);border-radius:24px;margin:40px 0}
     .faq-header{text-align:center;margin-bottom:40px}
-    .faq-header h2{font-size:36px;font-weight:600;margin-bottom:20px;color:#1d1d1f}
-    .faq-list{max-width:800px;margin:0 auto}
-    .faq-item{background:#fff;border-radius:20px;margin-bottom:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #f0f0f0;transition:.25s}
-    .faq-item:hover{box-shadow:0 8px 30px rgba(0,0,0,.12);transform:translateY(-2px)}
-    .faq-question{padding:24px;font-size:18px;font-weight:600;color:#1d1d1f;background:#fff;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;transition:.25s;position:relative}
-    .faq-question:hover{background:#f8f9ff}
-    .faq-question.active{background:#f0f4ff;color:#007aff;border-bottom:2px solid #007aff}
-    .faq-emoji{font-size:24px;flex-shrink:0}
-    .faq-text{flex:1}
-    .faq-toggle{width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;transition:.25s;flex-shrink:0}
-    .faq-question:hover .faq-toggle{background:#007aff;color:#fff}
-    .faq-question.active .faq-toggle{background:#007aff;color:#fff;transform:rotate(180deg)}
-    .faq-toggle::before{content:"↓";font-size:16px;font-weight:bold}
-    .faq-answer{padding:0 24px;color:#515154;font-size:16px;line-height:1.7;background:#fafafa;max-height:0;overflow:hidden;transition:all .4s ease}
-    .faq-answer.active{padding:24px;max-height:300px}
+    .faq-list{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+    .faq-item{background:#fff;border-radius:16px;box-shadow:var(--card-shadow);border:1px solid #f0f0f0;overflow:hidden}
+    .faq-question{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:20px 24px;font-size:18px;font-weight:600;cursor:pointer}
+    .faq-left{display:flex;align-items:center;gap:16px}
+    .faq-emoji{font-size:24px}
+    .faq-toggle{width:32px;height:32px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;transition:.2s;font-weight:700}
+    .faq-item.open .faq-toggle{background:var(--blue);color:#fff;transform:rotate(180deg)}
+    /* ответы по умолчанию скрыты ЖЕСТКО — ничего не «подтекает» */
+    .faq-answer{max-height:0;overflow:hidden;padding:0 24px;color:var(--muted);font-size:16px;line-height:1.7;background:#fafafa;transition:max-height .35s ease,padding .35s ease}
+    .faq-item.open .faq-answer{max-height:600px;padding:16px 24px 20px}
 
-    /* FINAL CTA */
-    .final-cta{padding:100px 0;background:linear-gradient(135deg,#667eea 0%, #764ba2 100%);color:#fff;text-align:center}
-    .final-cta h2{font-size:36px;font-weight:600;margin-bottom:24px}
-    .final-cta p{font-size:20px;opacity:.9;margin-bottom:40px;max-width:600px;margin-inline:auto}
-    .final-cta .cta-button{background:#fff;color:#667eea;font-weight:600}
-    .final-cta .cta-button:hover{background:#f0f0f0;transform:translateY(-2px)}
+    /* ====== FINAL CTA ====== */
+    .final-cta{padding:100px 0;background:linear-gradient(135deg,var(--brand) 0%, var(--brand2) 100%);color:#fff;text-align:center}
+    .final-cta h2{font-size:36px;margin-bottom:16px}
+    .final-cta p{opacity:.9;margin:0 auto 24px;max-width:600px}
 
-    /* FOOTER */
+    /* ====== FOOTER ====== */
     footer{background:#1d1d1f;color:#fff;padding:60px 0 40px}
-    .footer-content{display:grid;gap:40px;margin-bottom:40px}
-    .footer-section h3{color:#fff;font-size:18px;font-weight:600;margin-bottom:20px}
-    .footer-section p{color:#a1a1a6;margin-bottom:8px}
-    .footer-section a{color:#a1a1a6;text-decoration:none}
+    .footer-content{display:grid;gap:40px;margin-bottom:32px}
+    .footer-section h3{font-size:18px;margin-bottom:10px}
+    .footer-section p,.footer-section a{color:#a1a1a6;text-decoration:none}
     .footer-section a:hover{color:#fff;text-decoration:underline}
-    .footer-bottom{border-top:1px solid #333;padding-top:24px;text-align:center;color:#86868b;font-size:14px}
+    .footer-bottom{border-top:1px solid #333;padding-top:16px;text-align:center;color:#86868b;font-size:14px}
 
-    /* Responsive */
+    /* ====== АДАПТИВ ====== */
     @media (max-width:640px){
       .container{padding:0 16px}
       .hero-gradient{padding:80px 0 60px}
-      .hero-stats{gap:24px}
       .hero-features{gap:20px}
       .hero-feature{font-size:14px}
-      .main-header{padding:60px 0}
-      .about-section,.benefits-section,.host-section,.program-section,.how-it-works,.faq-section,.final-cta{padding:60px 0}
-      .benefits-grid,.program-grid,.steps-grid{gap:20px}
-      .benefit-card,.program-card{padding:24px}
-      .pricing-cards{flex-direction:column;gap:24px}
-      .price-card{min-width:auto;width:100%}
-      .cta-button{display:block;width:100%;text-align:center;padding:20px}
-      .hero-cta .cta-button{width:100%;padding:22px}
-      .host-content{gap:40px;flex-direction:column}
-
-      /* Мобильно: фото сверху, неширокое */
-      .guide-photo{order:1;width:100%;max-width:320px;margin:0 auto 16px}
+      .host-content{flex-direction:column}
+      .guide-photo{order:1;max-width:360px;margin:0 auto 16px}
       .host-info{order:2}
-
-      .step-card{padding:20px;gap:16px}
-      .faq-question,.faq-answer{padding:20px}
-      .faq-answer{padding-top:0}
+      .program-grid,.benefits-grid,.steps-grid{gap:20px}
+      .step-card{padding:20px}
+      .price-row{flex-direction:column}
     }
-
     @media (min-width:641px){
       .benefits-grid{grid-template-columns:repeat(2,1fr)}
       .program-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-content{grid-template-columns:1fr 1fr}
+      .steps-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
   <main>
     <!-- HERO -->
-    <div class="hero-gradient">
+    <section class="hero-gradient">
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge">Сезон 1 • Сентябрь — Октябрь 2024</div>
-          <div class="hero-slogan">Книжный клуб по роману "Евгений Онегин"</div>
-          <div class="hero-sub">Открываем глубину классики через живое чтение и осмысленный разговор. Не школьное чтение, а погружение в мир Пушкина и в себя.</div>
+          <div class="hero-slogan">Книжный клуб по роману «Евгений Онегин»</div>
+          <div class="hero-sub">Открываем глубину классики через живое чтение и осмысленный разговор. Не школьная обязаловка — а настоящее путешествие к Пушкину и к себе.</div>
 
           <div class="hero-stats">
             <div class="hero-stat"><div class="hero-stat-number">8</div><div class="hero-stat-label">встреч</div></div>
@@ -211,7 +186,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- BENEFITS -->
     <section class="benefits-section">
@@ -220,11 +195,31 @@
           <h2>Почему наш клуб особенный?</h2>
           <p>Четыре причины присоединиться к сообществу думающих читателей</p>
         </div>
+
         <div class="benefits-grid">
-          <div class="benefit-card"><div class="benefit-icon">🎯</div><h3>Глубже школьной программы</h3><p>Разбираем текст без академической скуки, но с уважением к деталям и контексту эпохи.</p></div>
-          <div class="benefit-card"><div class="benefit-icon">🪞</div><h3>Литература как зеркало</h3><p>Находим связи между судьбами героев и современностью, открываем личные инсайты через чтение.</p></div>
-          <div class="benefit-card"><div class="benefit-icon">👥</div><h3>Живое сообщество</h3><p>Обсуждения и споры с единомышленниками, которые ценят глубокие разговоры о литературе.</p></div>
-          <div class="benefit-card"><div class="benefit-icon">⏰</div><h3>Удобный формат</h3><p>Еженедельные встречи онлайн плюс доступ ко всем записям и материалам в любое время.</p></div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>Глубже школьной программы</h3>
+            <p>Разбираем текст без академической скуки, но с уважением к деталям и контексту эпохи.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🪞</div>
+            <h3>Литература как зеркало</h3>
+            <p>Находим связи между судьбами героев и современностью, открываем личные инсайты через чтение.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">👥</div>
+            <h3>Живое сообщество</h3>
+            <p>Обсуждения и споры с единомышленниками, которые ценят глубокие разговоры о литературе.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">⏰</div>
+            <h3>Удобный формат</h3>
+            <p>Еженедельные встречи онлайн плюс доступ ко всем записям и материалам в любое время.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -236,13 +231,15 @@
           <div class="host-info">
             <h2>Ваш проводник в мире Пушкина</h2>
             <p>Артём Новиченков — писатель, литературовед и преподаватель с многолетним опытом. Автор пьес и романов, публиковался в ведущих российских журналах.</p>
-            <p>Ведет литературные и философские передачи на радио Маяк, читает лекции по русской и мировой литературе. Преподавал в НИУ ВШЭ и проекте «Учитель для России».</p>
+            <p>Ведёт литературные и философские передачи на радио «Маяк», читает лекции по русской и мировой литературе. Преподавал в НИУ ВШЭ и проекте «Учитель для России».</p>
+
             <div class="host-credentials">
               <h4>Подход</h4>
               <p>Соединяет академическое знание текстов с живым разговором о человеке и его судьбе. Никакой сухой теории — только то, что помогает понять себя и мир.</p>
             </div>
           </div>
 
+          <!-- Фото справа на десктопе, сверху на мобиле -->
           <img src="./216A3059.jpg" alt="Артём Новиченков" class="guide-photo">
         </div>
       </div>
@@ -255,23 +252,30 @@
           <h2>8 встреч. 8 открытий</h2>
           <p>Каждое воскресенье в 19:00 МСК — новый взгляд на вечные вопросы</p>
         </div>
+
         <div class="program-grid">
           <div class="program-card"><div class="program-date">7 сентября</div><div class="program-title">Онегин и мир</div><div class="program-desc">Кто такой «лишний человек» и почему он до сих пор среди нас?</div></div>
-          <div class="program-card"><div class="program-date">14 сентября</div><div class="program-title">Искусство скуки</div><div class="program-desc">Что скрывается за маской равнодушия и как с этим жить?</div></div>
-          <div class="program-card"><div class="program-date">21 сентября</div><div class="program-title">Деревня и город</div><div class="program-desc">Противостояние двух миров и поиск своего места</div></div>
-          <div class="program-card"><div class="program-date">28 сентября</div><div class="program-title">Ленский: поэт и мечтатель</div><div class="program-desc">Романтизм, дружба и цена идеализма</div></div>
-          <div class="program-card"><div class="program-date">5 октября</div><div class="program-title">Татьяна: письмо любви</div><div class="program-desc">Смелость чувств и женский характер в литературе</div></div>
-          <div class="program-card"><div class="program-date">12 октября</div><div class="program-title">Именины и ревность</div><div class="program-desc">Психология конфликта и неизбежность трагедии</div></div>
-          <div class="program-card"><div class="program-date">19 октября</div><div class="program-title">Дуэль как символ</div><div class="program-desc">Честь, гордость и точка невозврата</div></div>
-          <div class="program-card"><div class="program-date">26 октября</div><div class="program-title">Финал: встреча через годы</div><div class="program-desc">Как люди меняются и что остается неизменным</div></div>
+          <div class="program-card"><div class="program-date">14 сентября</div><div class="program-title">Искусство скуки</div><div class="program-desc">Что скрывается за маской равнодушия и как это работает в нас?</div></div>
+          <div class="program-card"><div class="program-date">21 сентября</div><div class="program-title">Деревня и город</div><div class="program-desc">Противостояние двух миров и поиск своего места.</div></div>
+          <div class="program-card"><div class="program-date">28 сентября</div><div class="program-title">Ленский: поэт и мечтатель</div><div class="program-desc">Романтизм, дружба и цена идеализма.</div></div>
+          <div class="program-card"><div class="program-date">5 октября</div><div class="program-title">Татьяна: письмо любви</div><div class="program-desc">Смелость чувств и женский характер в литературе.</div></div>
+          <div class="program-card"><div class="program-date">12 октября</div><div class="program-title">Именины и ревность</div><div class="program-desc">Психология конфликта и неизбежность трагедии.</div></div>
+          <div class="program-card"><div class="program-date">19 октября</div><div class="program-title">Дуэль как символ</div><div class="program-desc">Честь, гордость и точка невозврата.</div></div>
+          <div class="program-card"><div class="program-date">26 октября</div><div class="program-title">Финал: встреча через годы</div><div class="program-desc">Как люди меняются и что остаётся неизменным.</div></div>
         </div>
 
         <div class="pricing-section">
           <div class="pricing-header"><h3>Выберите удобный формат участия</h3></div>
-          <div class="pricing-cards">
-            <div class="price-card"><div class="price-badge">Выгодно</div><div class="price-main">7 600 ₽</div><div class="price-desc">Полный сезон из 8 встреч<br>Экономия 1 200 ₽</div></div>
-            <div class="price-or">или</div>
-            <div class="price-card secondary"><div class="price-main">1 100 ₽</div><div class="price-desc">Разовая встреча</div></div>
+          <div class="price-row">
+            <div class="price-card">
+              <div class="price-badge">Выгодно</div>
+              <div class="price-main">7 600 ₽</div>
+              <div class="price-desc">Полный сезон из 8 встреч<br>Экономия 1 200 ₽</div>
+            </div>
+            <div class="price-card secondary">
+              <div class="price-main">1 100 ₽</div>
+              <div class="price-desc">Разовая встреча</div>
+            </div>
           </div>
         </div>
       </div>
@@ -282,85 +286,68 @@
       <div class="container">
         <div class="how-header"><h2>Как всё устроено</h2></div>
         <div class="steps-grid">
-          <div class="step-card"><div class="step-number">1</div><div class="step-content"><h3>Подаете заявку</h3><p>Заполняете форму на сайте — это займет не больше минуты</p></div></div>
-          <div class="step-card"><div class="step-number">2</div><div class="step-content"><h3>Получаете подтверждение</h3><p>Мы связываемся с вами и отправляем ссылку для оплаты</p></div></div>
-          <div class="step-card"><div class="step-number">3</div><div class="step-content"><h3>Присоединяетесь к встречам</h3><p>Получаете ссылку на Zoom и напоминания о каждой встрече</p></div></div>
-          <div class="step-card"><div class="step-number">4</div><div class="step-content"><h3>Получаете материалы</h3><p>После каждой встречи — запись и дополнительные материалы на почту</p></div></div>
+          <div class="step-card"><div class="step-number">1</div><div><h3>Подаёте заявку</h3><p>Заполняете форму на сайте — это займёт минуту.</p></div></div>
+          <div class="step-card"><div class="step-number">2</div><div><h3>Получаете подтверждение</h3><p>Мы связываемся и отправляем ссылку для оплаты.</p></div></div>
+          <div class="step-card"><div class="step-number">3</div><div><h3>Присоединяетесь к встречам</h3><p>Присылаем ссылку на Zoom и напоминания.</p></div></div>
+          <div class="step-card"><div class="step-number">4</div><div><h3>Получаете материалы</h3><p>Записи и материалы приходят на почту после каждой встречи.</p></div></div>
         </div>
       </div>
     </section>
 
- <!-- FAQ — НОВЫЙ -->
-<section class="faq-section">
-  <div class="container">
-    <div class="faq-header"><h2>Ответы на главные вопросы</h2></div>
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-header"><h2>Ответы на главные вопросы</h2></div>
 
-    <div class="faq-list">
+        <div class="faq-list" id="faq">
+          <div class="faq-item">
+            <div class="faq-question">
+              <div class="faq-left"><span class="faq-emoji">🤔</span><span>Нужно ли заранее читать роман?</span></div>
+              <div class="faq-toggle">↓</div>
+            </div>
+            <div class="faq-answer">Нет! Читаем и разбираем вместе на встречах. Приходите с любым уровнем знакомства — от «вообще не читал» до «в школе проходил».</div>
+          </div>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <div class="faq-emoji">🤔</div>
-          <div class="faq-text">Нужно ли заранее читать роман?</div>
-          <div class="faq-toggle"></div>
-        </div>
-        <div class="faq-answer">
-          Нет! Мы читаем и разбираем текст вместе на встречах. Приходите с любым уровнем знакомства с произведением — от полного незнания до школьных воспоминаний. Главное — интерес к глубокому чтению.
+          <div class="faq-item">
+            <div class="faq-question">
+              <div class="faq-left"><span class="faq-emoji">⏰</span><span>Что если пропущу встречу?</span></div>
+              <div class="faq-toggle">↓</div>
+            </div>
+            <div class="faq-answer">Все записи сохраняются и отправляются участникам в течение 24 часов после встреч. Плюс — дополнительные материалы.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <div class="faq-left"><span class="faq-emoji">📚</span><span>Подойдёт ли тем, кто далёк от литературы?</span></div>
+              <div class="faq-toggle">↓</div>
+            </div>
+            <div class="faq-answer">Абсолютно. Разговариваем человеческим языком о важных вещах, без академического жаргона. Интерес к чтению важнее, чем филологический бэкграунд.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <div class="faq-left"><span class="faq-emoji">💰</span><span>Как происходит оплата?</span></div>
+              <div class="faq-toggle">↓</div>
+            </div>
+            <div class="faq-answer">После подтверждения заявки пришлём безопасную ссылку на оплату картой. Можно оплатить весь сезон со скидкой или разово.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <div class="faq-left"><span class="faq-emoji">🎯</span><span>Сколько времени занимают встречи?</span></div>
+              <div class="faq-toggle">↓</div>
+            </div>
+            <div class="faq-answer">Каждая встреча длится 1,5–2 часа по воскресеньям в 19:00 МСК. Объём домашнего чтения — посильный.</div>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <div class="faq-emoji">⏰</div>
-          <div class="faq-text">Что если пропущу встречу?</div>
-          <div class="faq-toggle"></div>
-        </div>
-        <div class="faq-answer">
-          Все записи сохраняются и отправляются участникам на почту в течение 24 часов после встречи. Плюс дополнительные материалы и конспекты для лучшего понимания темы.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <div class="faq-emoji">📚</div>
-          <div class="faq-text">Подойдет ли тем, кто далек от литературы?</div>
-          <div class="faq-toggle"></div>
-        </div>
-        <div class="faq-answer">
-          Абсолютно! Мы говорим простым языком о сложных вещах и избегаем академического жаргона. Важен искренний интерес к литературе, а не филологическое образование.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <div class="faq-emoji">💰</div>
-          <div class="faq-text">Как происходит оплата?</div>
-          <div class="faq-toggle"></div>
-        </div>
-        <div class="faq-answer">
-          После подтверждения заявки пришлем безопасную ссылку для оплаты картой. Можно оплатить сразу весь сезон со скидкой или покупать встречи по одной.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <div class="faq-emoji">🎯</div>
-          <div class="faq-text">Сколько времени занимают встречи?</div>
-          <div class="faq-toggle"></div>
-        </div>
-        <div class="faq-answer">
-          Каждая встреча длится 1,5–2 часа по воскресеньям в 19:00 МСК. Дополнительно можно читать текст в своем темпе — мы даем рекомендации по объёму на каждую неделю.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- FINAL CTA -->
     <section class="final-cta">
       <div class="container">
         <h2>Начните путешествие с Онегиным</h2>
-        <p>Присоединяйтесь к сообществу читателей, которые видят в литературе больше, чем просто текст</p>
+        <p>Присоединяйтесь к сообществу читателей, которые видят в литературе больше, чем просто текст.</p>
         <a class="cta-button" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSerXTwNhGyzESx4CVvs0OoDWRSMKdcH8aHc94SvrPqV8fDhXg/viewform?usp=dialog">Записаться в клуб →</a>
       </div>
     </section>
@@ -383,26 +370,21 @@
           <p><a href="offer.html" target="_blank" rel="noopener">Публичная оферта</a></p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2024 Артём Новиченков. Литературный клуб «Евгений Онегин»</p>
-      </div>
+      <div class="footer-bottom">© 2024 Артём Новиченков. Литературный клуб «Евгений Онегин»</div>
     </div>
   </footer>
 
-  <!-- JS для аккордеона FAQ -->
+  <!-- JS: FAQ аккордеон (жёсткое скрытие по умолчанию) -->
   <script>
-    document.querySelectorAll('.faq-question').forEach(q => {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-question');
       q.addEventListener('click', () => {
-        const answer = q.nextElementSibling;
-        const isOpen = answer.classList.contains('active');
-        document.querySelectorAll('.faq-answer.active').forEach(a => {
-          a.classList.remove('active');
-          a.previousElementSibling.classList.remove('active');
+        // закрываем другие
+        document.querySelectorAll('.faq-item.open').forEach(o=>{
+          if(o!==item){ o.classList.remove('open'); }
         });
-        if (!isOpen) {
-          q.classList.add('active');
-          answer.classList.add('active');
-        }
+        // переключаем текущий
+        item.classList.toggle('open');
       });
     });
   </script>
