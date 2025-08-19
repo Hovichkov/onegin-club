@@ -65,15 +65,18 @@
 
     /* HOST */
     .host-section{padding:100px 0;background:#f8f9ff}
-    .host-content{display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap}
-    .host-info{flex:1 1 640px;max-width:720px}
+    .host-content{
+      display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap;max-width:1000px;margin:0 auto
+    }
+    .host-info{flex:1 1 640px;max-width:720px;order:1}
     .host-info h2{font-size:36px;font-weight:600;margin-bottom:24px;color:#1d1d1f}
     .host-info p{font-size:18px;color:#515154;line-height:1.7;margin-bottom:20px}
     .host-credentials{background:#fff;padding:24px;border-radius:16px;border-left:4px solid #007aff;margin-top:20px}
     .host-credentials h4{color:#007aff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
     .host-credentials p{font-size:16px;color:#515154}
+    /* Фото: справа, фикс 280px, не раздувается */
     .guide-photo{
-      flex:0 0 300px;width:300px;max-width:30vw;height:auto;border-radius:20px;
+      order:2;flex:0 0 280px;width:280px;max-width:280px;height:auto;border-radius:20px;
       box-shadow:0 12px 40px rgba(0,0,0,.15);object-fit:cover
     }
 
@@ -161,11 +164,10 @@
       .price-card{min-width:auto;width:100%}
       .cta-button{display:block;width:100%;text-align:center;padding:20px}
       .hero-cta .cta-button{width:100%;padding:22px}
-      .host-content{gap:40px}
+      .host-content{gap:40px;flex-direction:column}
 
-      /* HOST (mobile) */
-      .host-content{flex-direction:column}
-      .guide-photo{order:1;width:100%;max-width:360px;margin:0 auto 16px}
+      /* Мобильно: фото сверху, неширокое */
+      .guide-photo{order:1;width:100%;max-width:320px;margin:0 auto 16px}
       .host-info{order:2}
 
       .step-card{padding:20px;gap:16px}
@@ -176,7 +178,6 @@
     @media (min-width:641px){
       .benefits-grid{grid-template-columns:repeat(2,1fr)}
       .program-grid{grid-template-columns:repeat(2,1fr)}
-      /* убрали grid-раскладку у .host-content, оставили flex */
       .footer-content{grid-template-columns:1fr 1fr}
     }
   </style>
@@ -300,7 +301,7 @@
             <div class="faq-answer">Нет! Мы читаем и разбираем текст вместе на встречах. Приходите с любым уровнем знакомства с произведением — от полного незнания до школьных воспоминаний. Главное — интерес к глубокому чтению.</div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item>
             <div class="faq-question"><div class="faq-emoji">⏰</div><div class="faq-text">Что если пропущу встречу?</div><div class="faq-toggle"></div></div>
             <div class="faq-answer">Все записи сохраняются и отправляются участникам на почту в течение 24 часов после встречи. Плюс дополнительные материалы и конспекты для лучшего понимания темы.</div>
           </div>
